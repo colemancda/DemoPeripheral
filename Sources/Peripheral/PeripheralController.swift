@@ -110,6 +110,7 @@ final class PeripheralController {
             guard let status = PeripheralService.Status.init(bigEndian: newValue)
                 else { return ATT.Error.InvalidAttributeValueLength }
             
+            // set new value
             self.status = status.value.boolValue
             
         default: fatalError("Writing to unknown characteristic \(UUID)")

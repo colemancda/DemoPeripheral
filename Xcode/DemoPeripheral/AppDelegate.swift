@@ -15,10 +15,14 @@ final class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControll
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        let splitViewController = self.window!.rootViewController as! UISplitViewController
-        let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as! UINavigationController
-        navigationController.topViewController!.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem()
-        splitViewController.delegate = self
+        
+        // print app info
+        print("Launching DemoPeripheral v\(AppVersion) Build \(AppBuild)")
+        
+        PeripheralManager.shared.log = { print("PeripheralManager: " + $0) }
+        
+        
+        
         return true
     }
 
@@ -45,4 +49,12 @@ final class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControll
     }
 
 }
+
+// MARK: - Constants
+
+/// Version of the app.
+public let AppVersion = Bundle.main().infoDictionary!["CFBundleShortVersionString"] as! String
+
+/// Build of the app.
+public let AppBuild = Bundle.main().infoDictionary!["CFBundleVersion"] as! String
 
