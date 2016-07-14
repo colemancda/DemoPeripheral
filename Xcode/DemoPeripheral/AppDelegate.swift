@@ -19,9 +19,12 @@ final class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControll
         // print app info
         print("Launching DemoPeripheral v\(AppVersion) Build \(AppBuild)")
         
+        // Peripheral Manager
         PeripheralManager.shared.log = { print("PeripheralManager: " + $0) }
         
-        
+        // iBeacon
+        BeaconController.shared.log = { print("BeaconController: " + $0) }
+        BeaconController.shared.start()
         
         return true
     }

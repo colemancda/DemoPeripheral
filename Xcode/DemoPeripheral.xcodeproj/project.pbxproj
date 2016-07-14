@@ -24,6 +24,10 @@
 		6E5DA6501D374F7B00700D6D /* SwiftyGPIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5DA6311D374BFE00700D6D /* SwiftyGPIO.swift */; };
 		6E5DA6561D3757AB00700D6D /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5DA6541D3757AB00700D6D /* Observable.swift */; };
 		6E5DA6571D3757AB00700D6D /* PeripheralManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5DA6551D3757AB00700D6D /* PeripheralManager.swift */; };
+		6E5DA6591D37656000700D6D /* Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5DA6581D37656000700D6D /* Async.swift */; };
+		6E5DA65B1D37684A00700D6D /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5DA65A1D37684A00700D6D /* Error.swift */; };
+		6E5DA65D1D376ADC00700D6D /* BeaconController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5DA65C1D376ADC00700D6D /* BeaconController.swift */; };
+		6E5DA65F1D376D5F00700D6D /* ErrorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5DA65E1D376D5F00700D6D /* ErrorAlert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +51,10 @@
 		6E5DA6531D3753B800700D6D /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; name = Cartfile; path = ../Cartfile; sourceTree = "<group>"; };
 		6E5DA6541D3757AB00700D6D /* Observable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		6E5DA6551D3757AB00700D6D /* PeripheralManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeripheralManager.swift; sourceTree = "<group>"; };
+		6E5DA6581D37656000700D6D /* Async.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Async.swift; sourceTree = "<group>"; };
+		6E5DA65A1D37684A00700D6D /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		6E5DA65C1D376ADC00700D6D /* BeaconController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconController.swift; sourceTree = "<group>"; };
+		6E5DA65E1D376D5F00700D6D /* ErrorAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorAlert.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,7 +102,11 @@
 				6E5DA6121D37404200700D6D /* AppDelegate.swift */,
 				6E5DA6261D37419C00700D6D /* PeripheralsViewController.swift */,
 				6E5DA6551D3757AB00700D6D /* PeripheralManager.swift */,
+				6E5DA65C1D376ADC00700D6D /* BeaconController.swift */,
 				6E5DA6541D3757AB00700D6D /* Observable.swift */,
+				6E5DA6581D37656000700D6D /* Async.swift */,
+				6E5DA65A1D37684A00700D6D /* Error.swift */,
+				6E5DA65E1D376D5F00700D6D /* ErrorAlert.swift */,
 				6E5DA6181D37404200700D6D /* Main.storyboard */,
 				6E5DA61B1D37404200700D6D /* Assets.xcassets */,
 				6E5DA61D1D37404200700D6D /* LaunchScreen.storyboard */,
@@ -240,11 +252,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				6E5DA6571D3757AB00700D6D /* PeripheralManager.swift in Sources */,
+				6E5DA65D1D376ADC00700D6D /* BeaconController.swift in Sources */,
 				6E5DA6271D37419C00700D6D /* PeripheralsViewController.swift in Sources */,
 				6E5DA62D1D3742FF00700D6D /* Bool.swift in Sources */,
+				6E5DA65F1D376D5F00700D6D /* ErrorAlert.swift in Sources */,
 				6E5DA6561D3757AB00700D6D /* Observable.swift in Sources */,
+				6E5DA6591D37656000700D6D /* Async.swift in Sources */,
 				6E5DA62F1D374B3500700D6D /* Beacon.swift in Sources */,
 				6E5DA62B1D37424E00700D6D /* GATTProfile.swift in Sources */,
+				6E5DA65B1D37684A00700D6D /* Error.swift in Sources */,
 				6E5DA6131D37404200700D6D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

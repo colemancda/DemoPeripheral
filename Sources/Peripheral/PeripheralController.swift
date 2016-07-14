@@ -32,9 +32,9 @@ final class PeripheralController {
         didSet { didChangeStatus(oldValue: oldValue) }
     }
     
-    let appLED: GPIO = {
+    lazy var appLED: GPIO = {
         
-        let gpio = GPIO(sunXi: SunXiGPIO(letter: .A, pin: 1))
+        let gpio = GPIO(sunXi: SunXiGPIO(letter: .A, pin: 1)) // Change to whatever you want, depending on your hardware
         
         gpio.direction = .OUT
         
@@ -47,9 +47,7 @@ final class PeripheralController {
         
         // setup server
         peripheral.log = { print("Peripheral: " + $0) }
-        
         peripheral.willWrite = willWrite
-        peripheral.willRead = willRead
         
         // add service to GATT server
         addPeripheralService()
@@ -94,11 +92,11 @@ final class PeripheralController {
         print("Status \(oldValue) -> \(status)")
         
         peripheral[characteristic: PeripheralService.Status.UUID] = PeripheralService.Status(value: self.status).toBigEndian()
-    }
-    
-    private func willRead(central: Central, UUID: BluetoothUUID, value: Data, offset: Int) -> Bluetooth.ATT.Error? {
         
-        return nil
+        // turn on / off LED
+        #if arch(arm)
+        appLED.value = status
+        #endif
     }
     
     private func willWrite(central: Central, UUID: BluetoothUUID, value: Data, newValue: Data) -> Bluetooth.ATT.Error? {
