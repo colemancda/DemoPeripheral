@@ -129,11 +129,15 @@ final class PeripheralsViewController: UITableViewController {
             
         case let .error(error):
             
+            refreshControl?.endRefreshing()
+            
             dismissProgressHUD(animated: false)
             
             showErrorAlert("\(error)", okHandler: { self.scan() })
             
         case let .found(devices):
+            
+            refreshControl?.endRefreshing()
             
             assert(devices.isEmpty == false, "Should scan continously when there are no devices")
             
