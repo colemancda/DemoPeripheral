@@ -156,6 +156,7 @@
 				6E5DA60B1D37404200700D6D /* Sources */,
 				6E5DA60C1D37404200700D6D /* Frameworks */,
 				6E5DA60D1D37404200700D6D /* Resources */,
+				6E5DA6611D37746000700D6D /* Copy Frameworks */,
 			);
 			buildRules = (
 			);
@@ -195,9 +196,14 @@
 				TargetAttributes = {
 					6E5DA60E1D37404200700D6D = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 458385Y4E3;
-						DevelopmentTeamName = "Alsey Miller (Personal Team)";
+						DevelopmentTeam = 4W79SG34MW;
+						DevelopmentTeamName = "Robert Miller";
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					6E5DA63C1D374F5E00700D6D = {
 						CreatedOnToolsVersion = 8.0;
@@ -245,6 +251,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6E5DA6611D37746000700D6D /* Copy Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/../Carthage/Build/iOS/SwiftFoundation.framework",
+				"$(SRCROOT)/../Carthage/Build/iOS/Bluetooth.framework",
+				"$(SRCROOT)/../Carthage/Build/iOS/JSON.framework",
+				"$(SRCROOT)/../Carthage/Build/iOS/GATT.framework",
+				"$(SRCROOT)/../Carthage/Build/iOS/JGProgressHUD.framework",
+			);
+			name = "Copy Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6E5DA60B1D37404200700D6D /* Sources */ = {

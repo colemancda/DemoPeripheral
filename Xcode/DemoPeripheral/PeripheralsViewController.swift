@@ -133,6 +133,8 @@ final class PeripheralsViewController: UITableViewController {
         
         guard progressHUDVisible == false else { return }
         
+        tableView.reloadData()
+        
         progressHUD.show(in: self.view)
         
         view.isUserInteractionEnabled = false
