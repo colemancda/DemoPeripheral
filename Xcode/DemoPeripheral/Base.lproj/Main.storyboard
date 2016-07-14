@@ -42,7 +42,11 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SU2-Qo-cpC"/>
+                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SU2-Qo-cpC">
+                                            <connections>
+                                                <action selector="toggleStatus:" destination="7bK-jq-Zjz" eventType="valueChanged" id="Yd4-Qt-EhI"/>
+                                            </connections>
+                                        </switch>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="SU2-Qo-cpC" firstAttribute="centerY" secondItem="37f-cq-3Eg" secondAttribute="centerY" id="ILE-ev-AeX"/>

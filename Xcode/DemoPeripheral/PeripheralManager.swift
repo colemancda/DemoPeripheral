@@ -149,7 +149,7 @@
                 // set new status value
                 let status = PeripheralService.Status.init(value: value)
                 
-                try self.internalManager.write(data: status.toBigEndian(), response: true, characteristic: PeripheralService.Status.UUID, service: PeripheralService.Status.UUID, peripheral: device.peripheral)
+                try self.internalManager.write(data: status.toBigEndian(), response: true, characteristic: PeripheralService.Status.UUID, service: PeripheralService.UUID, peripheral: device.peripheral)
                 
                 // update cached device value
                 self[identifier]?.status = value

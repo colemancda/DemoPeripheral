@@ -89,7 +89,32 @@ final class PeripheralsViewController: UITableViewController {
     
     @IBAction func toggleStatus(_ sender: UISwitch) {
         
+        guard case let .found(devices) = self.state else { fatalError("Invalid state: \(self.state)") }
         
+        // get cell index
+        
+        let buttonPosition = sender.convert(CGPoint.zero, to: self.tableView)
+        
+        let indexPath = self.tableView.indexPathForRow(at: buttonPosition)!
+        
+        let device = devices[indexPath.row]
+        
+        let newValue = !device.status
+        
+        // start operation
+        
+        showProgressHUD()
+        
+        async { [weak self] in
+            
+            guard let controller = self else { return }
+            
+            do { try PeripheralManager.shared.setStatus(device.identifier, value: newValue) }
+            
+            catch { mainQueue { controller.state = .error(error) }; return }
+            
+            // callback will update UI
+        }
     }
     
     // MARK: - Private Methods
