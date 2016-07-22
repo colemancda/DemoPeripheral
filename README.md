@@ -11,11 +11,15 @@ PureSwift/BluetoothLinux Example
 
     cd DemoPeripheral
 
+## Build (will generate errors)
+
+    swift build
+
 ## Patch code
 
 In
 
-    /Packages/CStatfs-1.0.0/module.modulemap
+    Packages/CStatfs-1.0.0/module.modulemap
 
 Replace
 
@@ -25,7 +29,7 @@ by
 
     arm-linux-gnueabihf
 
-## Build
+## Build again
 
     swift build
 
