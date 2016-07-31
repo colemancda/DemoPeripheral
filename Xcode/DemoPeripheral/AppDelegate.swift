@@ -9,11 +9,11 @@
 import UIKit
 
 @UIApplicationMain
-final class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
+final class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [AnyHashable : Any]?) -> Bool {
         // Override point for customization after application launch.
         
         // print app info
@@ -56,8 +56,8 @@ final class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControll
 // MARK: - Constants
 
 /// Version of the app.
-public let AppVersion = Bundle.main().infoDictionary!["CFBundleShortVersionString"] as! String
+public let AppVersion = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
 
 /// Build of the app.
-public let AppBuild = Bundle.main().infoDictionary!["CFBundleVersion"] as! String
+public let AppBuild = Bundle.main.infoDictionary!["CFBundleVersion"] as! String
 

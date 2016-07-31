@@ -64,7 +64,7 @@ public final class Observable<Value> {
     }
 }
 
-public extension Observable where Value: NilLiteralConvertible {
+public extension Observable where Value: ExpressibleByNilLiteral {
     
     convenience init() { self.init(nil) }
 }

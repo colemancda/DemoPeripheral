@@ -60,7 +60,7 @@ final class PeripheralsViewController: UITableViewController {
             
         } else {
             
-            self.state = .error(Error.bluetoothDisabled)
+            self.state = .error(AppError.bluetoothDisabled)
         }
     }
     
@@ -197,7 +197,7 @@ final class PeripheralsViewController: UITableViewController {
             // bluetooth disabled
             else {
                 
-                self.state = .error(Error.bluetoothDisabled)
+                self.state = .error(AppError.bluetoothDisabled)
             }
         }
     }
@@ -260,7 +260,7 @@ extension PeripheralsViewController {
     enum State {
         
         case scanning
-        case error(ErrorProtocol)
+        case error(Error)
         case found([PeripheralManager.Device])
     }
 }

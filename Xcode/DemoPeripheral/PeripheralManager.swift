@@ -15,8 +15,6 @@
     
     public final class PeripheralManager {
         
-        public typealias Error = PeripheralManagerError
-        
         // MARK: - Initialization
         
         public static let shared: PeripheralManager = PeripheralManager()
@@ -109,7 +107,7 @@
                     else { continue }
                 
                 // found device
-                if services.contains({ $0.UUID == PeripheralService.UUID }) {
+                if services.contains(where: { $0.UUID == PeripheralService.UUID }) {
                     
                     guard let foundDevice = try? self.foundDevice(peripheral: peripheral)
                         else { continue }
@@ -142,7 +140,7 @@
         public func setStatus(_ identifier: UUID, value: Bool) throws {
             
             guard let device = self[identifier]
-                else { throw Error.NoPeripheral }
+                else { throw PeripheralManagerError.noPeripheral }
             
             return try peripheralAction(peripheral: device.peripheral, characteristics: [PeripheralService.Status.UUID]) {
                 
@@ -169,8 +167,8 @@
             // discover peripheral service
             let services = try self.internalManager.discoverServices(for: peripheral)
             
-            guard services.contains({ $0.UUID == PeripheralService.UUID })
-                else { throw Error.PeripheralServiceNotFound }
+            guard services.contains(where: { $0.UUID == PeripheralService.UUID })
+                else { throw PeripheralManagerError.peripheralServiceNotFound }
             
             // read characteristic
             
@@ -178,8 +176,8 @@
             
             for requiredCharacteristic in characteristics {
                 
-                guard foundCharacteristics.contains({ $0.UUID == requiredCharacteristic })
-                    else { throw Error.CharacteristicNotFound(requiredCharacteristic) }
+                guard foundCharacteristics.contains(where: { $0.UUID == requiredCharacteristic })
+                    else { throw PeripheralManagerError.characteristicNotFound(requiredCharacteristic) }
             }
             
             // perform action
@@ -194,23 +192,23 @@
             
             let characteristics = try internalManager.discoverCharacteristics(for: PeripheralService.UUID, peripheral: peripheral)
             
-            guard characteristics.contains({ $0.UUID == PeripheralService.Status.UUID })
-                else { throw Error.CharacteristicNotFound(PeripheralService.Status.UUID) }
+            guard characteristics.contains(where: { $0.UUID == PeripheralService.Status.UUID })
+                else { throw PeripheralManagerError.characteristicNotFound(PeripheralService.Status.UUID) }
             
             let statusValue = try internalManager.read(characteristic: PeripheralService.Status.UUID, service: PeripheralService.UUID, peripheral: peripheral)
             
             guard let status = PeripheralService.Status.init(bigEndian: statusValue)
-                else { throw Error.InvalidCharacteristicValue(PeripheralService.Status.UUID) }
+                else { throw PeripheralManagerError.invalidCharacteristicValue(PeripheralService.Status.UUID) }
             
             // get peripheral UUID
             
-            guard characteristics.contains({ $0.UUID == PeripheralService.Identifier.UUID })
-                else { throw Error.CharacteristicNotFound(PeripheralService.Identifier.UUID) }
+            guard characteristics.contains(where: { $0.UUID == PeripheralService.Identifier.UUID })
+                else { throw PeripheralManagerError.characteristicNotFound(PeripheralService.Identifier.UUID) }
             
             let identifierValue = try internalManager.read(characteristic: PeripheralService.Identifier.UUID, service: PeripheralService.UUID, peripheral: peripheral)
             
             guard let identifier = PeripheralService.Identifier.init(bigEndian: identifierValue)
-                else { throw Error.InvalidCharacteristicValue(PeripheralService.Identifier.UUID) }
+                else { throw PeripheralManagerError.invalidCharacteristicValue(PeripheralService.Identifier.UUID) }
             
             
             log?("Device \((peripheral, identifier.value, status))")
@@ -219,12 +217,12 @@
         }
     }
     
-    public enum PeripheralManagerError: ErrorProtocol {
+    public enum PeripheralManagerError: Error {
         
-        case NoPeripheral
-        case PeripheralServiceNotFound
-        case CharacteristicNotFound(BluetoothUUID)
-        case InvalidCharacteristicValue(BluetoothUUID)
+        case noPeripheral
+        case peripheralServiceNotFound
+        case characteristicNotFound(BluetoothUUID)
+        case invalidCharacteristicValue(BluetoothUUID)
     }
     
     public extension PeripheralManager {

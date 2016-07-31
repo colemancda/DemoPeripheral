@@ -10,14 +10,13 @@ import Foundation
 
 func mainQueue(_ block: () -> ()) {
     
-    OperationQueue.main().addOperation(block)
+    OperationQueue.main.addOperation(block)
 }
 
 /// Perform a task on the internal queue.
-@inline(__always)
 func async(_ block: () -> ()) {
     
     queue.async { block() }
 }
 
-private let queue = DispatchQueue(label: "Internal App Queue", attributes: .serial)
+private let queue = DispatchQueue(label: "Internal App Queue", attributes: [])

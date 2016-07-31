@@ -1,0 +1,6 @@
+github "JonasGessner/JGProgressHUD" "v1.3.5"
+github "PureSwift/JSON-C" "0b49467d3f881523c9a74994f6e460a757bdb84f"
+github "PureSwift/SwiftFoundation" "9415e238f02ff78bb1f1c61f31bd1120959ddf4c"
+github "PureSwift/Bluetooth" "adfb8019748bee25c1679f2b65ecb87388f9c52a"
+github "PureSwift/BluetoothLinux" "ddcbe7e079e759bb6f5845c723db672828d323be"
+github "PureSwift/GATT" "9ad1f4642f4e8b5e03a5d3cf913ed4bd33be4c48"

@@ -79,7 +79,8 @@ public struct PeripheralService: GATTProfileService {
         
         public init?(bigEndian: Data) {
             
-            guard let byte = bigEndian.bytes.first where bigEndian.bytes.count == 1,
+            guard let byte = bigEndian.bytes.first,
+                bigEndian.bytes.count == 1,
                 let value = BluetoothBool(rawValue: byte)
                 else { return nil }
             

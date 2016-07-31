@@ -9,7 +9,7 @@
 import SwiftFoundation
 
 /// Boolean value that can be transmitted over Bluetooth GATT.
-public struct BluetoothBool: Boolean, BooleanLiteralConvertible {
+public struct BluetoothBool: ExpressibleByBooleanLiteral {
     
     public var boolValue: Bool
     

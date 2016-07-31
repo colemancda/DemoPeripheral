@@ -7,7 +7,7 @@
 //
 
 /// Demo Peripheral errors
-enum Error: ErrorProtocol {
+enum AppError: Error {
     
     case bluetoothDisabled
     case peripheralNotInRange

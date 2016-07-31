@@ -61,7 +61,7 @@ final class BeaconController: NSObject, CLLocationManagerDelegate {
     }
     
     @objc(locationManager:monitoringDidFailForRegion:withError:)
-    func locationManager(_ manager: CLLocationManager, monitoringDidFailFor region: CLRegion?, withError error: NSError) {
+    func locationManager(_ manager: CLLocationManager, monitoringDidFailFor region: CLRegion?, withError error: Error) {
         
         log?("Could not start iBeacon monitoring. (\(error))")
     }
