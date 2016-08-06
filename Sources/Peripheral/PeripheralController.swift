@@ -95,7 +95,7 @@ final class PeripheralController {
         
         // turn on / off LED
         #if arch(arm)
-        appLED.value = status != 0
+        appLED.value = status ? 1 : 0
         #endif
     }
     
