@@ -8,13 +8,13 @@
 
 import Foundation
 
-func mainQueue(_ block: () -> ()) {
+func mainQueue(_ block: @escaping () -> ()) {
     
     OperationQueue.main.addOperation(block)
 }
 
 /// Perform a task on the internal queue.
-func async(_ block: () -> ()) {
+func async(_ block: @escaping () -> ()) {
     
     queue.async { block() }
 }
