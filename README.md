@@ -1,10 +1,11 @@
 # DemoPeripheral
-Make your ARM Linux device (e.g. BeagleBone, Raspberry Pi, Orange Pi) into an iBeacon and Bluetooth Low Energy peripheral with Swift.
+Turn your ARM Linux device (e.g. BeagleBone, Raspberry Pi, Orange Pi) into an iBeacon and Bluetooth Low Energy peripheral with Swift. Includes iOS app for interacting with the peripheral via Bluetooth.
 
 ## Setup (iOS)
 
 1. Install Xcode 8 Beta 4
 2. Install [Swift 3.0 2016-08-04 Snapshot](https://swift.org/builds/development/xcode/swift-DEVELOPMENT-SNAPSHOT-2016-08-04-a/swift-DEVELOPMENT-SNAPSHOT-2016-08-04-a-osx.pkg)
+3. Install [Carthage](https://github.com/Carthage/Carthage) dependencies `carthage update --toolchain org.swift.3020160804a`
 
 ## Setup (Linux)
 
