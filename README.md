@@ -3,20 +3,36 @@ Turn your ARM Linux device (e.g. BeagleBone, Raspberry Pi, Orange Pi) into an iB
 
 ## Setup (iOS)
 
-Install [Carthage](https://github.com/Carthage/Carthage) dependencies `carthage update`
+Install [Carthage](https://github.com/Carthage/Carthage) dependencies 
+
+```
+carthage update
+```
 
 ## Setup (Linux)
 
 
 1. Install [Swift 3.0 for ARM Linux](http://dev.iachieved.it/iachievedit/swift-3-0-on-a-beaglebone-black/), make sure to use [2016-09-26 build](http://swift-arm.ddns.net/job/Swift-3.0-ARMv7-ubuntu1410/lastSuccessfulBuild/artifact/swift-3.0-2016-09-26-armv7-ubuntu14.04.tar.gz).
-2. Clone this repo `git clone https://github.com/colemancda/DemoPeripheral`
-2. Go inside DemoPeripheral `cd DemoPeripheral`
-3. Build (will generate errors) `swift build`
-4. Patch code, in `Packages/CStatfs-1.0.0/module.modulemap` replace `x86_64-linux-gnu` with `arm-linux-gnueabihf`
-5. Build again `swift build`
-6. Run `sudo .build/debug/Peripheral`
+2. Install `BluetoothLinux` [dependencies](https://github.com/PureSwift/BluetoothLinux#dependencies).
+3. Clone and Build (will generate errors)
 
-You will see this logging in your console
+```
+git clone https://github.com/colemancda/DemoPeripheral
+cd DemoPeripheral
+swift build
+```
+
+4. Patch code, in `Packages/CStatfs-1.0.0/module.modulemap` replace `x86_64-linux-gnu` with `arm-linux-gnueabihf`
+6. Build and run 
+
+```
+swift build
+sudo .build/debug/Peripheral
+```
+
+## Interaction
+
+You should see the following in your console
 
 ```
 Starting Peripheral Daemon...
