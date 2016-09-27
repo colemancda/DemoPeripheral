@@ -3,14 +3,12 @@ Turn your ARM Linux device (e.g. BeagleBone, Raspberry Pi, Orange Pi) into an iB
 
 ## Setup (iOS)
 
-1. Install Xcode 8 Beta 4
-2. Install [Swift 3.0 2016-08-04 Snapshot](https://swift.org/builds/development/xcode/swift-DEVELOPMENT-SNAPSHOT-2016-08-04-a/swift-DEVELOPMENT-SNAPSHOT-2016-08-04-a-osx.pkg)
-3. Install [Carthage](https://github.com/Carthage/Carthage) dependencies `carthage update --toolchain org.swift.3020160804a`
+Install [Carthage](https://github.com/Carthage/Carthage) dependencies `carthage update`
 
 ## Setup (Linux)
 
 
-1. Install [Swift 3.0 for ARM Linux](http://dev.iachieved.it/iachievedit/swift-3-0-on-a-beaglebone-black/), make sure to use [2016-08-05 build](http://swift-arm.ddns.net/job/Swift-3.0-ARM-Incremental/93/artifact/swift-3.0-2016-08-05-BBB-ubuntu14.04.tar.gz).
+1. Install [Swift 3.0 for ARM Linux](http://dev.iachieved.it/iachievedit/swift-3-0-on-a-beaglebone-black/), make sure to use [2016-09-26 build](http://swift-arm.ddns.net/job/Swift-3.0-ARMv7-ubuntu1410/lastSuccessfulBuild/artifact/swift-3.0-2016-09-26-armv7-ubuntu14.04.tar.gz).
 2. Clone this repo `git clone https://github.com/colemancda/DemoPeripheral`
 2. Go inside DemoPeripheral `cd DemoPeripheral`
 3. Build (will generate errors) `swift build`
